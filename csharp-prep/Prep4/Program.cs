@@ -5,10 +5,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Crear la lista vacía
         List<int> numbers = new List<int>();
         
-        // Variable de control para el bucle
         bool continueProgram = true;
         
         while (continueProgram)
