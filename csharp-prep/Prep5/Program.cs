@@ -7,11 +7,11 @@ class Program
         DisplayWelcomeMessage();
 
         string userName = PromptUserName();
-        int userNumber = PromptUserNumber();
+        int userNum = PromptUserNumber();
 
-        int squaredNumber = SquareNumber(userNumber);
+        int squaredNum = SquareNumber(userNum);
 
-        DisplayResult(userName, squaredNumber);
+        DisplayResult(userName, squaredNum);
     }
 
     static void DisplayWelcomeMessage()
@@ -23,6 +23,7 @@ class Program
     {
         Console.Write("Please enter your name: ");
         string name = Console.ReadLine();
+        name = char.ToUpper(name[0]) + name.Substring(1).ToLower();
 
         return name;
     }
