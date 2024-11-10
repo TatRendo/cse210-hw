@@ -6,18 +6,18 @@ class Program
     static void Main(string[] args)
     {
         // Crear la lista vacía
-        List<string> numbers = new List<string>();
+        List<int> numbers = new List<int>();
         
         // Variable de control para el bucle
         bool continueProgram = true;
         
         while (continueProgram)
         {
-            Console.WriteLine("\n--- Menú de Opciones ---");
-            Console.WriteLine("1. Enter the number: ");
-            Console.WriteLine("2. Delete number: ");
-            Console.WriteLine("3. The sorted list is: ");
-            Console.WriteLine("0. Etype 0 when finished:");
+            Console.WriteLine("\n--- Options Menu ---");
+            Console.WriteLine("1. Enter the number");
+            Console.WriteLine("2. Delete number");
+            Console.WriteLine("3. Show the sorted list");
+            Console.WriteLine("0. Type 0 when finished");
             Console.Write("Select an option (0-3): ");
             
             string choice = Console.ReadLine();
@@ -26,27 +26,34 @@ class Program
             {
                 case "1":
                     Console.Write("Enter the number: ");
-                    string newNumber = Console.ReadLine();
-                    numbers.Add(newNumber);
-                    Console.WriteLine($"La palabra '{newNumber}' has been add.");
-                    break;
-                
-                case "2":
-                    Console.Write("Delete number: ");
-                    string numToRemove = Console.ReadLine();
-                    if (numbers.Remove(numToRemove))
+                    if (int.TryParse(Console.ReadLine(), out int newNumber))
                     {
-                        Console.WriteLine($"The '{numToRemove}' has been removed.");
+                        numbers.Add(newNumber);
+                        Console.WriteLine($"The number '{newNumber}' has been added.");
                     }
                     else
                     {
-                        Console.WriteLine($"'{numToRemove}' was not found.");
+                        Console.WriteLine("Invalid input. Please enter a valid number.");
+                    }
+                    break;
+                
+                case "2":
+                    Console.Write("Enter the number to delete: ");
+                    if (int.TryParse(Console.ReadLine(), out int numToRemove) && numbers.Contains(numToRemove))
+                    {
+                        numbers.Remove(numToRemove);
+                        Console.WriteLine($"The number '{numToRemove}' has been removed.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"'{numToRemove}' was not found or is invalid.");
                     }
                     break;
                 
                 case "3":
                     Console.WriteLine("\nThe sorted list is:");
-                    foreach (string num in numbers)
+                    numbers.Sort();
+                    foreach (int num in numbers)
                     {
                         Console.WriteLine(num);
                     }
@@ -54,13 +61,42 @@ class Program
 
                 case "0":
                     continueProgram = false;
-                    Console.WriteLine("¡See you soon.");
+                    Console.WriteLine("See you soon.");
                     break;
                 
                 default:
-                    Console.WriteLine("The option is not valid. Try again.");
+                    Console.WriteLine("Invalid option. Try again.");
                     break;
             }
+        }
+        int sum = 0;
+        foreach (int number in numbers)
+        {
+            sum += number;
+        }
+        Console.WriteLine($"\nThe sum is: {sum}");
+
+        if (numbers.Count > 0)
+        {
+            float average = (float)sum / numbers.Count;
+            Console.WriteLine($"The average is: {average}");
+        }
+        else
+        {
+            Console.WriteLine("No numbers entered for calculating average.");
+        }
+
+        if (numbers.Count > 0)
+        {
+            int max = numbers[0];
+            foreach (int number in numbers)
+            {
+                if (number > max)
+                {
+                    max = number;
+                }
+            }
+            Console.WriteLine($"The max is: {max}");
         }
     }
 }
