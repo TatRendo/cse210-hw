@@ -6,22 +6,22 @@ public class Program
     {
         Journal journal = new Journal();
         string[] prompts = {
-            "¿Quién fue la persona más interesante con la que interactué hoy?",
-            "¿Cuál fue la mejor parte de mi día?",
-            "¿Cómo vi la mano del Señor en mi vida hoy?",
-            "¿Cuál fue la emoción más fuerte que sentí hoy?",
-            "Si tuviera que hacer una cosa hoy, ¿qué sería?"
+            "¿What did I do today and how did I feel about it?",
+            "¿What important goals or tasks did .... today?",
+            "¿Was there anything significant or inusual that happened today??",
+            "¿What decisions did I make today that could impact my future?",
+            "What am I grateful for today and why?"
         };
 
         while (true)
         {
-            Console.WriteLine("Menú:");
-            Console.WriteLine("1. Escribir una nueva entrada");
-            Console.WriteLine("2. Mostrar el diario");
-            Console.WriteLine("3. Guardar el diario en un archivo");
-            Console.WriteLine("4. Cargar el diario desde un archivo");
-            Console.WriteLine("5. Salir");
-            Console.Write("Selecciona una opción: ");
+            Console.WriteLine("--- Option menu ---");
+            Console.WriteLine("1. Write in the diary");
+            Console.WriteLine("2. Show the diary");
+            Console.WriteLine("3. Save the journal to a file");
+            Console.WriteLine("4. Load journal from file");
+            Console.WriteLine("5. Quit");
+            Console.Write("Select an option:");
             string choice = Console.ReadLine();
 
             switch (choice)
@@ -39,22 +39,22 @@ public class Program
                     break;
 
                 case "3":
-                    Console.Write("Ingresa el nombre del archivo para guardar: ");
+                    Console.Write("Enter the file name to save: ");
                     string saveFileName = Console.ReadLine();
                     journal.SaveToFile(saveFileName);
                     break;
 
                 case "4":
-                    Console.Write("Ingresa el nombre del archivo para cargar: ");
+                    Console.Write("Enter the file name to upload: ");
                     string loadFileName = Console.ReadLine();
                     journal.LoadFromFile(loadFileName);
                     break;
-
+ 
                 case "5":
                     return;
 
                 default:
-                    Console.WriteLine("Opción no válida.");
+                    Console.WriteLine("Invalid option.");
                     break;
             }
         }
