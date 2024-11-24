@@ -19,7 +19,7 @@ public class Scripture
     {
         Random random = new Random();
         List<Word> visibleWords = _words.Where(word => !word.IsHidden).ToList();
-        int wordsToHide = Math.Min(3, visibleWords.Count); // Oculta hasta 3 palabras
+        int wordsToHide = Math.Min(3, visibleWords.Count);
 
         for (int i = 0; i < wordsToHide; i++)
         {
