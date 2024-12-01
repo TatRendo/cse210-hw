@@ -5,10 +5,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // Crear videos
-        Video video1 = new Video("How to Train Your Dragon", "Cressida Cowell", 600);
-        Video video2 = new Video("Ma Meilleure Ennemier", "Stromae & Pomme soundtrack Arcane", 1200);
-        Video video3 = new Video("general conference 2024 - October", "Church of jesus christ of latter day saints", 900);
+        Video video1 = new Video("How to Train Your Dragon", "Cressida Cowell", 6120);
+        Video video2 = new Video("Ma Meilleure Ennemier", "Stromae & Pomme soundtrack Arcane", 147);
+        Video video3 = new Video("general conference 2024 - October", "Church of jesus christ of latter day saints", 18000);
 
         video1.AddComment(new Comment("Leonardo", "I can't get over Estoico's death."));
         video1.AddComment(new Comment("Kleithin", "excellent character development."));
