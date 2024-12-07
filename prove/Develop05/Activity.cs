@@ -23,7 +23,7 @@ public abstract class Activity
 
     public void EndActivity(int duration)
     {
-        Console.WriteLine("\nGood job! You have completed the activity.");
+        Console.WriteLine("\nGood job!!! Finaly. You have completed the activity.");
         Console.WriteLine($"Activity: {_name}");
         Console.WriteLine($"Duration: {duration} seconds.");
         ShowCountdown(3);
